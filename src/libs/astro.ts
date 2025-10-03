@@ -12,8 +12,10 @@ export async function getAstroConfig(mode: 'dev' | 'prod', id?: ThemeId) {
   const config: AstroInlineConfig = {
     configFile: false,
     integrations: [],
+    mode: mode === 'dev' ? 'development' : 'production',
     outDir: fileURLToPath(outDir),
     srcDir: './src/themes',
+    trailingSlash: 'always',
   }
 
   if (mode === 'prod') {

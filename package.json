@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite-node src/dev.ts",
-    "build": "vite-node src/build.ts",
+    "build": "NODE_ENV=production vite-node src/build.ts",
     "preview": "astro preview",
     "lint": "eslint . --cache --max-warnings=0",
     "format": "prettier -w --cache --ignore-unknown ."
