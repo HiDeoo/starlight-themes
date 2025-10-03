@@ -1,0 +1,5 @@
+{
+  "extends": "@hideoo/tsconfig",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
+}
