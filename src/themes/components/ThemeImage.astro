@@ -1,0 +1,28 @@
+---
+import { AstroError } from 'astro/errors'
+import type { ThemeId, ThemeVariant } from '../../libs/theme'
+import { Image } from 'astro:assets'
+
+interface Props {
+  class?: string
+  id: ThemeId
+  variant: ThemeVariant
+}
+
+const { class: cssClass, id, variant } = Astro.props
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/themes/*.png')
+
+const image = images[`../assets/themes/${id}-${variant}.png`]
+
+if (!image) {
+  throw new AstroError(
+    `Could not find theme image (id: \`${id}\`, variant: \`${variant}\`).`,
+    'Theme images can be found in the Starlight repository: https://github.com/withastro/starlight/tree/main/docs/src/assets/themes',
+  )
+}
+
+const src = (await image()).default
+---
+
+<Image alt="" class:list={[cssClass, variant]} {src} width="960" />

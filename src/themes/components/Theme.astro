@@ -1,0 +1,76 @@
+---
+import type { ThemeId } from '../../libs/theme'
+import { Themes } from '../../libs/theme'
+import ThemeImage from './ThemeImage.astro'
+
+interface Props {
+  id: ThemeId
+}
+
+const { id } = Astro.props
+
+const theme = Themes[id]
+
+// TODO(HiDeoo) theme link should navigate to index of the preview, not the theme home
+---
+
+<li class="not-content sl-flex">
+  <a href={theme.link}>
+    <div aria-hidden="true" class="images">
+      <ThemeImage {id} variant="dark" />
+      <ThemeImage {id} variant="light" />
+    </div>
+    <div class="meta">
+      <p class="title">{theme.name}</p>
+    </div>
+  </a>
+</li>
+
+<style>
+  a {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    box-shadow: var(--sl-shadow-sm);
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  a:hover {
+    border-color: var(--sl-color-gray-2);
+    background-color: var(--sl-color-gray-7, var(--sl-color-gray-6));
+  }
+
+  .images {
+    border-bottom: 1px solid var(--sl-color-gray-5);
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .images > img {
+    aspect-ratio: 16 / 9;
+    display: block;
+    grid-area: 1 / 1;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  :global(:root[data-theme='dark']) .images .light {
+    opacity: 0;
+  }
+
+  :global(:root[data-theme='light']) .images .dark {
+    opacity: 0;
+  }
+
+  .meta {
+    padding: 1rem;
+  }
+
+  .title {
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-lg);
+    font-weight: 600;
+    line-height: var(--sl-line-height-headings);
+  }
+</style>

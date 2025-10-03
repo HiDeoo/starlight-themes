@@ -1,0 +1,20 @@
+---
+import { getAllThemeIds } from '../../libs/theme'
+import Theme from './Theme.astro'
+
+const themes = getAllThemeIds()
+---
+
+<ul>
+  {themes.map((id) => <Theme {id} />)}
+</ul>
+
+<style>
+  ul {
+    display: grid;
+    gap: clamp(1rem, calc(0.75rem + 1vw), 1.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22.5rem), 1fr));
+    list-style: none;
+    padding: 0;
+  }
+</style>

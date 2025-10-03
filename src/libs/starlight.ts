@@ -1,8 +1,6 @@
-import { fileURLToPath } from 'node:url'
-
 import starlight from '@astrojs/starlight'
 import type { StarlightUserConfig } from '@astrojs/starlight/types'
-import { build, type AstroInlineConfig } from 'astro'
+import type { AstroInlineConfig } from 'astro'
 
 import { Themes, type ThemeId } from './theme'
 
@@ -10,7 +8,7 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
   const plugins: StarlightUserConfig['plugins'] = []
 
   if (id) {
-    const plugin = await Themes[id]()
+    const plugin = await Themes[id].loader()
     plugins.push(plugin())
   }
 
