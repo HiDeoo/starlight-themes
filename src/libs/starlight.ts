@@ -13,14 +13,12 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
   }
 
   astroConfig.integrations?.push(
-    // TODO(HiDeoo)
     starlight({
-      title: 'My Docs',
-      plugins,
       components: {
         PageFrame: './src/overrides/PageFrame.astro',
       },
-      social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+      plugins,
+      // TODO(HiDeoo)
       sidebar: [
         {
           label: 'Guides',
@@ -29,11 +27,14 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
             { label: 'Example Guide', slug: 'guides/example' },
           ],
         },
-        {
-          label: 'Reference',
-          autogenerate: { directory: 'reference' },
-        },
+        { label: 'Examples', autogenerate: { directory: 'examples' } },
       ],
+      social: [
+        { icon: 'starlight', label: 'Documentation', href: 'https://starlight.astro.build/' },
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' },
+        { icon: 'discord', label: 'Discord', href: 'https://astro.build/chat' },
+      ],
+      title: 'Starlight Themes',
     }),
   )
 }
