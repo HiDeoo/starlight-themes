@@ -1,0 +1,120 @@
+---
+import Default from '@astrojs/starlight/components/PageFrame.astro'
+import starlightThemes from 'virtual:starlight-themes'
+
+import { getAllThemeIds, getThemePathname, Themes } from '../libs/theme'
+
+// TODO(HiDeoo) tweak colors? blueprint kinda UI
+---
+
+<div class="starlight-themes-toolbar">
+  <label>
+    Enabled
+    <starlight-themes-select>
+      <select autocomplete="off">
+        <option value={getThemePathname(Astro.url)} selected={!starlightThemes.currentId}>Default</option>
+        {
+          getAllThemeIds().map((id) => (
+            <option value={getThemePathname(Astro.url, id)} selected={id === starlightThemes.currentId}>
+              {Themes[id].name}
+            </option>
+          ))
+        }
+      </select>
+    </starlight-themes-select>
+  </label>
+</div>
+<Default><slot slot="header" name="header" /><slot /><slot slot="sidebar" name="sidebar" /></Default>
+
+<script>
+  customElements.define(
+    'starlight-themes-select',
+    class StarlightThemesSelect extends HTMLElement {
+      constructor() {
+        super()
+        const select = this.querySelector('select')
+        if (!select) return
+
+        select.addEventListener('change', (event) => {
+          if (!(event.currentTarget instanceof HTMLSelectElement)) return
+
+          window.location.pathname = event.currentTarget.value
+        })
+
+        window.addEventListener('pageshow', (event) => {
+          if (!event.persisted) return
+
+          // If the page was loaded from a cache, the themes select selected index might not be in sync with the
+          // current page.
+          const markupSelectedIndex = select.querySelector<HTMLOptionElement>('option[selected]')?.index
+          if (markupSelectedIndex !== select.selectedIndex) {
+            select.selectedIndex = markupSelectedIndex ?? 0
+          }
+        })
+      }
+    },
+  )
+</script>
+
+<style is:global>
+  :root {
+    --starlight-themes-accent-color: hsl(347 77% 50%);
+    --starlight-themes-toolbar-bg-color: hsl(343 80% 35%);
+    --starlight-themes-toolbar-height: 3rem;
+  }
+
+  :root[data-theme='light'] {
+    --starlight-override-map-accent-color: hsl(345 83% 41%);
+  }
+
+  header.header {
+    inset-block-start: var(--starlight-themes-toolbar-height);
+  }
+
+  .sidebar-pane {
+    inset-block-start: calc(var(--sl-nav-height) + var(--starlight-themes-toolbar-height));
+  }
+
+  .main-frame {
+    padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height) + var(--starlight-themes-toolbar-height));
+  }
+
+  @media (min-width: 72rem) {
+    aside .right-sidebar {
+      padding-top: calc(var(--sl-nav-height) + var(--starlight-themes-toolbar-height));
+    }
+  }
+
+  mobile-starlight-toc nav {
+    top: calc(var(--sl-nav-height) - 1px + var(--starlight-themes-toolbar-height));
+  }
+
+  starlight-menu-button button {
+    top: calc(((var(--sl-nav-height) - var(--sl-menu-button-size)) / 2) + var(--starlight-themes-toolbar-height));
+  }
+
+  body > a[href='#_top'] {
+    top: calc(0.75rem + var(--starlight-themes-toolbar-height));
+  }
+</style>
+
+<style>
+  .starlight-themes-toolbar {
+    align-items: center;
+    background-color: var(--starlight-themes-toolbar-bg-color);
+    color: white;
+    display: flex;
+    gap: 0.75rem;
+    height: var(--starlight-themes-toolbar-height);
+    inset-inline: 0;
+    padding-inline: 1.5rem;
+    position: fixed;
+    z-index: 90;
+  }
+
+  @media (max-width: 50rem) {
+    .starlight-themes-toolbar {
+      padding-inline: 1rem;
+    }
+  }
+</style>

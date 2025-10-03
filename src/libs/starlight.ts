@@ -17,6 +17,9 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
     starlight({
       title: 'My Docs',
       plugins,
+      components: {
+        PageFrame: './src/overrides/PageFrame.astro',
+      },
       social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
       sidebar: [
         {

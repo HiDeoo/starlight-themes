@@ -4,6 +4,7 @@ import type { AstroInlineConfig } from 'astro'
 
 import { addStarlightIntegration } from './starlight'
 import type { ThemeId } from './theme'
+import { vitePluginStarlightThemes } from './vite'
 
 export async function getAstroConfig(mode: 'dev' | 'prod', id?: ThemeId) {
   const root = new URL('../../', import.meta.url)
@@ -16,6 +17,9 @@ export async function getAstroConfig(mode: 'dev' | 'prod', id?: ThemeId) {
     outDir: fileURLToPath(outDir),
     srcDir: './src/themes',
     trailingSlash: 'always',
+    vite: {
+      plugins: [vitePluginStarlightThemes(id)],
+    },
   }
 
   if (mode === 'prod') {
