@@ -1,7 +1,9 @@
 import fs from 'node:fs/promises'
 
-import { buildStarlight } from './libs/starlight'
-import { getAllThemeIds } from './libs/theme'
+import { build } from 'astro'
+
+import { getAstroConfig } from './libs/astro'
+import { getAllThemeIds, type ThemeId } from './libs/theme'
 
 // TODO(HiDeoo) ensure all links in content work no matter the theme
 // TODO(HiDeoo) make sure we enable most features in Starlight
@@ -10,9 +12,26 @@ import { getAllThemeIds } from './libs/theme'
 
 const distDir = new URL('../dist/', import.meta.url)
 
-await buildStarlight()
+await run()
 
-for (const theme of getAllThemeIds()) {
-  const { outDir } = await buildStarlight(theme)
-  await fs.rename(outDir, new URL(theme, distDir))
+async function run() {
+  await buildStarlight()
+
+  for (const id of getAllThemeIds()) {
+    const { outDir } = await buildStarlight(id)
+    await fs.rename(outDir, new URL(id, distDir))
+  }
+}
+
+async function buildStarlight(id?: ThemeId) {
+  const { config, outDir } = await getAstroConfig('prod', id)
+
+  // eslint-disable-next-line no-console
+  console.info(
+    `\u001B[32m▶\u001B[0m \u001B[34mBuilding Starlight\u001B[0m \u001B[2m(theme:\u001B[0m ${id ?? 'default'}\u001B[2m)\u001B[0m`,
+  )
+
+  await build(config)
+
+  return { outDir }
 }

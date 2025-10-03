@@ -6,28 +6,15 @@ import { build, type AstroInlineConfig } from 'astro'
 
 import { Themes, type ThemeId } from './theme'
 
-export async function buildStarlight(id?: ThemeId) {
-  const root = new URL('../../', import.meta.url)
-  const outDir = new URL(id ? `dist-themes/${id}/` : `dist/`, root)
-
-  const config: AstroInlineConfig = {
-    configFile: false,
-    integrations: [],
-    logLevel: 'error',
-    outDir: fileURLToPath(outDir),
-    srcDir: './src/themes',
-  }
-
+export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id?: ThemeId) {
   const plugins: StarlightUserConfig['plugins'] = []
 
   if (id) {
-    config.base = `/${id}`
-
     const plugin = await Themes[id]()
     plugins.push(plugin())
   }
 
-  config.integrations?.push(
+  astroConfig.integrations?.push(
     // TODO(HiDeoo)
     starlight({
       title: 'My Docs',
@@ -48,12 +35,4 @@ export async function buildStarlight(id?: ThemeId) {
       ],
     }),
   )
-
-  // eslint-disable-next-line no-console
-  console.info(
-    `\u001B[32m▶\u001B[0m \u001B[34mBuilding Starlight\u001B[0m \u001B[2m(theme:\u001B[0m ${id ?? 'default'}\u001B[2m)\u001B[0m`,
-  )
-  await build(config)
-
-  return { outDir }
 }
