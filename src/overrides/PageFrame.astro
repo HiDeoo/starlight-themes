@@ -1,18 +1,15 @@
 ---
 import Default from '@astrojs/starlight/components/PageFrame.astro'
+import { Icon } from '@astrojs/starlight/components'
 import starlightThemes from 'virtual:starlight-themes'
 
 import { getAllThemeIds, getThemePathname, Themes } from '../libs/theme'
-
-// TODO(HiDeoo) tweak colors? blueprint kinda UI
-// TODO(HiDeoo) style select
-// TODO(HiDeoo) link to theme index page
-// TODO(HiDeoo) label text
 ---
 
 <div class="starlight-themes-toolbar">
   <label>
-    Enabled
+    <span aria-hidden="true" class="label-text">Theme:</span>
+    <span class="sr-only">Change Theme:</span>
     <starlight-themes-select>
       <select autocomplete="off">
         <option value={getThemePathname(Astro.url)} selected={!starlightThemes.currentId}>Default</option>
@@ -24,8 +21,17 @@ import { getAllThemeIds, getThemePathname, Themes } from '../libs/theme'
           ))
         }
       </select>
+      <Icon name="down-caret" class="caret" />
     </starlight-themes-select>
   </label>
+  {
+    starlightThemes.currentId && (
+      <a href={Themes[starlightThemes.currentId].link} class="documentation">
+        Documentation
+        <Icon name="right-arrow" size="1.5rem" />
+      </a>
+    )
+  }
 </div>
 <Default><slot slot="header" name="header" /><slot /><slot slot="sidebar" name="sidebar" /></Default>
 
@@ -61,13 +67,7 @@ import { getAllThemeIds, getThemePathname, Themes } from '../libs/theme'
 
 <style is:global>
   :root {
-    --starlight-themes-accent-color: hsl(347 77% 50%);
-    --starlight-themes-toolbar-bg-color: hsl(343 80% 35%);
     --starlight-themes-toolbar-height: 3rem;
-  }
-
-  :root[data-theme='light'] {
-    --starlight-override-map-accent-color: hsl(345 83% 41%);
   }
 
   header.header {
@@ -104,20 +104,110 @@ import { getAllThemeIds, getThemePathname, Themes } from '../libs/theme'
 <style>
   .starlight-themes-toolbar {
     align-items: center;
-    background-color: var(--starlight-themes-toolbar-bg-color);
+    background-color: hsl(210 100% 40%);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg stroke='%23ffffff59' stroke-width='1' fill='none'%3E%3Cline x1='0' y1='0' x2='20' y2='0' stroke-dasharray='3,2'/%3E%3Cline x1='0' y1='0' x2='0' y2='20' stroke-dasharray='3,2'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: -1px -1px;
+    background-size: calc(1rem + 1px);
     color: white;
     display: flex;
+    font-family: var(--font-patrick-hand), cursive;
+    font-size: 1.25rem;
+    font-weight: 800;
     gap: 0.75rem;
     height: var(--starlight-themes-toolbar-height);
     inset-inline: 0;
+    justify-content: space-between;
     padding-inline: 1.5rem;
     position: fixed;
     z-index: 90;
   }
 
+  a {
+    color: inherit;
+  }
+
+  a:is(:hover, :focus) {
+    text-decoration: none;
+  }
+
   @media (max-width: 50rem) {
     .starlight-themes-toolbar {
       padding-inline: 1rem;
+    }
+  }
+
+  label {
+    --caret-size: 1.25rem;
+  }
+
+  label .label-text {
+    display: none;
+  }
+
+  @media (min-width: 30rem) {
+    label .label-text {
+      display: inline;
+    }
+  }
+
+  starlight-themes-select {
+    display: inline-flex;
+    position: relative;
+  }
+
+  select {
+    --starlight-themes-select-pad: 0.5rem;
+    --starlight-themes--select-accent: hsl(0 100% 100%);
+
+    appearance: none;
+    background-color: hsl(0 100% 0% / 0.65);
+    background-color: hsl(210 100% 20%);
+    border-radius: 0.25rem;
+    border: 1px dashed hsl(0 100% 100% / 0.75);
+    color: inherit;
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin-inline-start: 1ch;
+    padding-inline: var(--starlight-themes-select-pad) calc(var(--caret-size) + var(--starlight-themes-select-pad));
+  }
+
+  select:is(:hover, :focus) {
+    border-color: var(--starlight-themes--select-accent);
+    background-color: hsl(210 100% 25%);
+  }
+
+  select:focus {
+    outline: 2px solid var(--starlight-themes--select-accent);
+    outline-offset: 2px;
+  }
+
+  .caret {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: var(--caret-size);
+    inset-inline-end: 0.25rem;
+  }
+
+  .documentation {
+    align-items: center;
+    display: flex;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .documentation:is(:hover, :focus) svg {
+      animation: right-arrow-move 800ms infinite ease-in-out;
+    }
+  }
+
+  @keyframes right-arrow-move {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(0.25rem);
     }
   }
 </style>

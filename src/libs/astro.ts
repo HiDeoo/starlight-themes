@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url'
 
 import type { AstroInlineConfig } from 'astro'
+import { fontProviders } from 'astro/config'
 
 import { addStarlightIntegration } from './starlight'
 import type { ThemeId } from './theme'
@@ -12,6 +13,15 @@ export async function getAstroConfig(mode: 'dev' | 'prod', id?: ThemeId) {
 
   const config: AstroInlineConfig = {
     configFile: false,
+    experimental: {
+      fonts: [
+        {
+          provider: fontProviders.bunny(),
+          name: 'Patrick Hand',
+          cssVariable: '--font-patrick-hand',
+        },
+      ],
+    },
     integrations: [],
     mode: mode === 'dev' ? 'development' : 'production',
     outDir: fileURLToPath(outDir),

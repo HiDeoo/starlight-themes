@@ -1,6 +1,6 @@
 declare module 'virtual:starlight-themes' {
   const StarlightThemes: {
-    currentId: string | undefined
+    currentId: import('./libs/theme').ThemeId | undefined
   }
 
   export default StarlightThemes

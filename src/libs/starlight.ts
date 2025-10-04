@@ -15,6 +15,7 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
   astroConfig.integrations?.push(
     starlight({
       components: {
+        Head: './src/overrides/Head.astro',
         PageFrame: './src/overrides/PageFrame.astro',
       },
       plugins,
