@@ -1,12 +1,13 @@
 ---
 import { Icon } from '@astrojs/starlight/components'
-import Default from '@astrojs/starlight/components/PageFrame.astro'
+import Default from '@astrojs/starlight/components/SkipLink.astro'
 import starlightThemes from 'virtual:starlight-themes'
 
-import { getThemePathname, Themes, ThemesNames } from '../libs/theme'
+import { getThemePathname, Themes, ThemesIds } from '../libs/theme'
 ---
 
-<div class="starlight-themes-toolbar">
+<Default><slot /></Default>
+<div class="starlight-themes-toolbar not-content">
   <label>
     <span aria-hidden="true" class="label-text">Theme:</span>
     <span class="sr-only">Change Theme:</span>
@@ -14,7 +15,7 @@ import { getThemePathname, Themes, ThemesNames } from '../libs/theme'
       <select autocomplete="off">
         <option value={getThemePathname(Astro.url)} selected={!starlightThemes.currentId}>Default</option>
         {
-          ThemesNames.map((id) => (
+          ThemesIds.map((id) => (
             <option value={getThemePathname(Astro.url, id)} selected={id === starlightThemes.currentId}>
               {Themes[id].name}
             </option>
@@ -26,14 +27,15 @@ import { getThemePathname, Themes, ThemesNames } from '../libs/theme'
   </label>
   {
     starlightThemes.currentId && (
-      <a href={Themes[starlightThemes.currentId].link} class="documentation">
-        Documentation
-        <Icon name="right-arrow" size="1.5rem" />
-      </a>
+      <div>
+        <a href={Themes[starlightThemes.currentId].link} class="documentation">
+          Documentation
+          <Icon name="right-arrow" size="1.5rem" />
+        </a>
+      </div>
     )
   }
 </div>
-<Default><slot slot="header" name="header" /><slot /><slot slot="sidebar" name="sidebar" /></Default>
 
 <script>
   customElements.define(
@@ -65,79 +67,42 @@ import { getThemePathname, Themes, ThemesNames } from '../libs/theme'
   )
 </script>
 
-<style is:global>
-  :root {
-    --starlight-themes-toolbar-height: 3rem;
-  }
-
-  header.header {
-    inset-block-start: var(--starlight-themes-toolbar-height);
-  }
-
-  .sidebar-pane {
-    inset-block-start: calc(var(--sl-nav-height) + var(--starlight-themes-toolbar-height));
-  }
-
-  .main-frame {
-    padding-top: calc(var(--sl-nav-height) + var(--sl-mobile-toc-height) + var(--starlight-themes-toolbar-height));
-  }
-
-  @media (min-width: 72rem) {
-    aside .right-sidebar {
-      padding-top: calc(var(--sl-nav-height) + var(--starlight-themes-toolbar-height));
-    }
-  }
-
-  mobile-starlight-toc nav {
-    top: calc(var(--sl-nav-height) - 1px + var(--starlight-themes-toolbar-height));
-  }
-
-  starlight-menu-button button {
-    top: calc(((var(--sl-nav-height) - var(--sl-menu-button-size)) / 2) + var(--starlight-themes-toolbar-height));
-  }
-
-  body > a[href='#_top'] {
-    top: calc(0.75rem + var(--starlight-themes-toolbar-height));
-  }
-</style>
-
 <style>
   .starlight-themes-toolbar {
-    align-items: center;
+    --starlight-themes-accent: hsl(0 100% 100%);
+
     background-color: hsl(210 100% 40%);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg stroke='%23ffffff59' stroke-width='1' fill='none'%3E%3Cline x1='0' y1='0' x2='20' y2='0' stroke-dasharray='3,2'/%3E%3Cline x1='0' y1='0' x2='0' y2='20' stroke-dasharray='3,2'/%3E%3C/g%3E%3C/svg%3E");
     background-position: -1px -1px;
     background-size: calc(1rem + 1px);
-    color: white;
+    border-radius: 0.5rem;
+    border: 2px dashed hsl(0 0% 100% / 0.75);
+    box-shadow: var(--sl-shadow-lg);
+    color: var(--starlight-themes-accent);
     display: flex;
+    flex-direction: column;
     font-family: var(--font-patrick-hand), cursive;
     font-size: 1.25rem;
+    font-synthesis-weight: auto;
     font-weight: 800;
-    gap: 0.75rem;
-    height: var(--starlight-themes-toolbar-height);
-    inset-inline: 0;
-    justify-content: space-between;
-    padding-inline: 1.5rem;
+    gap: 0.5rem;
+    inset-block-end: 1rem;
+    inset-inline-end: 1rem;
+    line-height: 1.5;
+    max-width: 75vw;
+    padding: 1rem 1.5rem;
     position: fixed;
     z-index: 90;
   }
 
   a {
     color: inherit;
+    outline-color: var(--starlight-themes-accent);
+    outline-offset: 2px;
   }
 
   a:is(:hover, :focus) {
     text-decoration: none;
-  }
-
-  @media (max-width: 50rem) {
-    .starlight-themes-toolbar {
-      padding-inline: 1rem;
-    }
-  }
-
-  label {
-    --caret-size: 1.25rem;
   }
 
   label .label-text {
@@ -151,13 +116,14 @@ import { getThemePathname, Themes, ThemesNames } from '../libs/theme'
   }
 
   starlight-themes-select {
+    --starlight-themes-select-caret-size: 1.25rem;
+
     display: inline-flex;
     position: relative;
   }
 
   select {
     --starlight-themes-select-pad: 0.5rem;
-    --starlight-themes--select-accent: hsl(0 100% 100%);
 
     appearance: none;
     background-color: hsl(0 100% 0% / 0.65);
@@ -167,17 +133,23 @@ import { getThemePathname, Themes, ThemesNames } from '../libs/theme'
     color: inherit;
     font-size: 1.125rem;
     font-weight: 400;
-    margin-inline-start: 1ch;
-    padding-inline: var(--starlight-themes-select-pad) calc(var(--caret-size) + var(--starlight-themes-select-pad));
+    padding-inline: var(--starlight-themes-select-pad)
+      calc(var(--starlight-themes-select-caret-size) + var(--starlight-themes-select-pad));
+  }
+
+  @media (min-width: 30rem) {
+    select {
+      margin-inline-start: 1ch;
+    }
   }
 
   select:is(:hover, :focus) {
-    border-color: var(--starlight-themes--select-accent);
+    border-color: var(--starlight-themes-accent);
     background-color: hsl(210 100% 25%);
   }
 
   select:focus {
-    outline: 2px solid var(--starlight-themes--select-accent);
+    outline: 2px solid var(--starlight-themes-accent);
     outline-offset: 2px;
   }
 
@@ -186,7 +158,7 @@ import { getThemePathname, Themes, ThemesNames } from '../libs/theme'
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    font-size: var(--caret-size);
+    font-size: var(--starlight-themes-select-caret-size);
     inset-inline-end: 0.25rem;
   }
 

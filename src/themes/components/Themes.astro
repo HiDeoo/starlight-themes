@@ -1,12 +1,21 @@
 ---
-import { ThemesNames } from '../../libs/theme'
+import { ContainerSection } from 'starlight-theme-black/components'
+import starlightThemes from 'virtual:starlight-themes'
+
+import { ThemesIds } from '../../libs/theme'
 
 import Theme from './Theme.astro'
+
+// TODO(HiDeoo) heading
+
+const Wrapper = starlightThemes.currentId === 'black' ? ContainerSection : 'div'
 ---
 
-<ul>
-  {ThemesNames.map((id) => <Theme {id} />)}
-</ul>
+<Wrapper>
+  <ul>
+    {ThemesIds.map((id) => <Theme {id} />)}
+  </ul>
+</Wrapper>
 
 <style>
   ul {

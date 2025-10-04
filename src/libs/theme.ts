@@ -1,6 +1,6 @@
 import type { StarlightPlugin } from '@astrojs/starlight/types'
 
-export const ThemesNames = ['rapide', 'catppuccin', 'ion'] as const
+export const ThemesIds = ['rapide', 'catppuccin', 'ion', 'black'] as const
 
 export const Themes: Record<ThemeId, Theme> = {
   rapide: {
@@ -20,6 +20,12 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('starlight-ion-theme')).ion,
     name: 'Ion',
   },
+  black: {
+    link: '// TODO(HiDeoo) ',
+    loader: async () => (await import('starlight-theme-black')).default,
+    name: 'Black',
+    options: {},
+  },
 }
 
 export function getThemePathname(url: URL, id?: ThemeId) {
@@ -37,12 +43,13 @@ export function getThemePathname(url: URL, id?: ThemeId) {
   return themeUrl.pathname
 }
 
-export type ThemeId = (typeof ThemesNames)[number]
+export type ThemeId = (typeof ThemesIds)[number]
 
 interface Theme {
-  loader: () => Promise<() => StarlightPlugin>
+  loader: () => Promise<(...args: any[]) => StarlightPlugin>
   link: string
   name: string
+  options?: Record<string, unknown>
   // The name of the theme as shown in the Starlight documentation.
   docName?: string
 }
