@@ -4,7 +4,12 @@ export const Themes = {
   rapide: {
     link: '// TODO(HiDeoo) ',
     loader: async () => (await import('starlight-theme-rapide')).default,
-    name: 'Starlight Rapide',
+    name: 'Rapide',
+  },
+  catppuccin: {
+    link: '// TODO(HiDeoo) ',
+    loader: async () => (await import('@catppuccin/starlight')).default,
+    name: 'Catppuccin',
   },
 } satisfies Record<string, Theme>
 
