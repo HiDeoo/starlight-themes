@@ -1,7 +1,9 @@
 ---
+import type { ImageMetadata } from 'astro'
 import { AstroError } from 'astro/errors'
-import type { ThemeId, ThemeVariant } from '../../libs/theme'
 import { Image } from 'astro:assets'
+
+import type { ThemeId, ThemeVariant } from '../../libs/theme'
 
 interface Props {
   class?: string

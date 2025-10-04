@@ -1,6 +1,6 @@
 ---
-import Default from '@astrojs/starlight/components/PageFrame.astro'
 import { Icon } from '@astrojs/starlight/components'
+import Default from '@astrojs/starlight/components/PageFrame.astro'
 import starlightThemes from 'virtual:starlight-themes'
 
 import { getAllThemeIds, getThemePathname, Themes } from '../libs/theme'
@@ -47,10 +47,10 @@ import { getAllThemeIds, getThemePathname, Themes } from '../libs/theme'
         select.addEventListener('change', (event) => {
           if (!(event.currentTarget instanceof HTMLSelectElement)) return
 
-          window.location.pathname = event.currentTarget.value
+          globalThis.location.pathname = event.currentTarget.value
         })
 
-        window.addEventListener('pageshow', (event) => {
+        globalThis.addEventListener('pageshow', (event) => {
           if (!event.persisted) return
 
           // If the page was loaded from a cache, the themes select selected index might not be in sync with the
