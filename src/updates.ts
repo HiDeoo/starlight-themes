@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 
-import { getAllThemeIds, Themes } from './libs/theme'
+import { Themes, ThemesNames } from './libs/theme'
 
 const themeNameRegex = /title: '(?<name>[^']*)',/gm
 
@@ -31,7 +31,7 @@ async function run() {
   }
 
   const knownThemeNamesMap = new Map<string, string>()
-  for (const id of getAllThemeIds()) knownThemeNamesMap.set(Themes[id].name, id)
+  for (const id of ThemesNames) knownThemeNamesMap.set(Themes[id].docName ?? Themes[id].name, id)
 
   const missing: string[] = []
   const outdated: string[] = []

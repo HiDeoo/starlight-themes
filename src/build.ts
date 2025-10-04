@@ -3,7 +3,7 @@ import fs from 'node:fs/promises'
 import { build } from 'astro'
 
 import { getAstroConfig } from './libs/astro'
-import { getAllThemeIds, type ThemeId } from './libs/theme'
+import { ThemesNames, type ThemeId } from './libs/theme'
 
 // TODO(HiDeoo) ensure all links in content work no matter the theme
 // TODO(HiDeoo) make sure we enable most features in Starlight
@@ -18,7 +18,7 @@ await run()
 async function run() {
   await buildStarlight()
 
-  for (const id of getAllThemeIds()) {
+  for (const id of ThemesNames) {
     const { outDir } = await buildStarlight(id)
     await fs.rename(outDir, new URL(id, distDir))
   }

@@ -1,13 +1,11 @@
 ---
-import { getAllThemeIds } from '../../libs/theme'
+import { ThemesNames } from '../../libs/theme'
 
 import Theme from './Theme.astro'
-
-const themes = getAllThemeIds()
 ---
 
 <ul>
-  {themes.map((id) => <Theme {id} />)}
+  {ThemesNames.map((id) => <Theme {id} />)}
 </ul>
 
 <style>

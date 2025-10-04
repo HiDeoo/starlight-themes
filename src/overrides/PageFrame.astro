@@ -3,7 +3,7 @@ import { Icon } from '@astrojs/starlight/components'
 import Default from '@astrojs/starlight/components/PageFrame.astro'
 import starlightThemes from 'virtual:starlight-themes'
 
-import { getAllThemeIds, getThemePathname, Themes } from '../libs/theme'
+import { getThemePathname, Themes, ThemesNames } from '../libs/theme'
 ---
 
 <div class="starlight-themes-toolbar">
@@ -14,7 +14,7 @@ import { getAllThemeIds, getThemePathname, Themes } from '../libs/theme'
       <select autocomplete="off">
         <option value={getThemePathname(Astro.url)} selected={!starlightThemes.currentId}>Default</option>
         {
-          getAllThemeIds().map((id) => (
+          ThemesNames.map((id) => (
             <option value={getThemePathname(Astro.url, id)} selected={id === starlightThemes.currentId}>
               {Themes[id].name}
             </option>
