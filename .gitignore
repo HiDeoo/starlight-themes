@@ -30,5 +30,6 @@ out
 pnpm-debug.log*
 releases
 test-results
+updates.md
 yarn-debug.log*
 yarn-error.log*

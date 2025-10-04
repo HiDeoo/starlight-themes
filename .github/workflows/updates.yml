@@ -1,0 +1,48 @@
+name: Theme Tracker
+
+on:
+  workflow_dispatch:
+  # TODO(HiDeoo)
+  # schedule:
+  #   - cron: '35 0 * * *'
+
+jobs:
+  icons:
+    name: Check for new and outdated themes
+    if: github.repository_owner == 'hideoo'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v5
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22.x
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: Check for updates
+        run: pnpm updates
+
+      - name: Find report issue
+        if: ${{ hashFiles('updates.md') != '' }}
+        id: report-issue
+        uses: micalevisk/last-issue-action@v2
+        with:
+          state: open
+          labels: ci
+
+      - name: Create or update report issue
+        if: ${{ hashFiles('updates.md') != '' && steps.report-issue.outputs.has-found == 'true' }}
+        uses: peter-evans/create-issue-from-file@v4
+        with:
+          title: Theme updates
+          content-filepath: updates.md
+          issue-number: ${{ steps.report-issue.outputs.issue-number }}
+          labels: ci
