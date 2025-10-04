@@ -1,9 +1,10 @@
 name: autofix.ci
 
 on:
-  push:
-    branches:
-      - main
+  # TODO(HiDeoo)
+  # push:
+  #   branches:
+  #     - main
   pull_request:
     branches:
       - main

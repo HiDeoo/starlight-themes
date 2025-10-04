@@ -43,7 +43,7 @@ jobs:
           labels: ci
 
       - name: Create or update report issue
-        if: ${{ hashFiles('updates.md') != '' && steps.report-issue.outputs.has-found == 'true' }}
+        if: ${{ hashFiles('updates.md') != '' }}
         uses: peter-evans/create-issue-from-file@v4
         with:
           title: Theme updates
