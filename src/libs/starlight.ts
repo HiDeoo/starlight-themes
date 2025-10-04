@@ -12,12 +12,25 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
     plugins.push(plugin())
   }
 
+  plugins.push({
+    name: 'starlight-themes-overrides',
+    hooks: {
+      'config:setup'({ config, updateConfig }) {
+        // Overrides are added in a plugin running after the theme rather than in the Starlight configuration to work
+        // around themes not preserving user-defined overrides.
+        updateConfig({
+          components: {
+            ...config.components,
+            Head: './src/overrides/Head.astro',
+            PageFrame: './src/overrides/PageFrame.astro',
+          },
+        })
+      },
+    },
+  })
+
   astroConfig.integrations?.push(
     starlight({
-      components: {
-        Head: './src/overrides/Head.astro',
-        PageFrame: './src/overrides/PageFrame.astro',
-      },
       plugins,
       // TODO(HiDeoo)
       sidebar: [

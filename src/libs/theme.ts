@@ -1,6 +1,6 @@
 import type { StarlightPlugin } from '@astrojs/starlight/types'
 
-export const ThemesNames = ['rapide', 'catppuccin'] as const
+export const ThemesNames = ['rapide', 'catppuccin', 'ion'] as const
 
 export const Themes: Record<ThemeId, Theme> = {
   rapide: {
@@ -14,6 +14,11 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('@catppuccin/starlight')).default,
     name: 'Catppuccin',
     docName: 'Catppuccin for Starlight',
+  },
+  ion: {
+    link: '// TODO(HiDeoo) ',
+    loader: async () => (await import('starlight-ion-theme')).ion,
+    name: 'Ion',
   },
 }
 
