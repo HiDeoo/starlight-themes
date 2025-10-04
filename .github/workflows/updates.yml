@@ -1,10 +1,14 @@
-name: Theme Tracker
+name: theme tracker
 
 on:
   workflow_dispatch:
   # TODO(HiDeoo)
   # schedule:
   #   - cron: '35 0 * * *'
+
+permissions:
+  contents: write
+  issues: write
 
 jobs:
   icons:
