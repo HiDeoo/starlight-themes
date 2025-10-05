@@ -105,12 +105,15 @@ With highlighted content. Including insertions or deletions.
 
 ```astro title="example.astro" {"1. Keep the existing icon.":5-6} del={"2. Remove the button.":8-9} ins={"3. Add a link.":11-12}
 ---
-import { Icon } from '@astrojs/starlight/components'
+import { Icon } from '@astrojs/starlight/components';
 ---
+
 
 <Icon name="seti:lock" />
 
+
 <button type="button">Login</button>
+
 
 <a href="/login/">Login</a>
 ```
