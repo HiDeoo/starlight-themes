@@ -37,7 +37,7 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
   })
 
   const config: StarlightUserConfig = {
-    description: '// TODO(HiDeoo) ',
+    description: 'The one place to preview all Starlight themes.',
     editLink: {
       baseUrl: 'https://github.com/HiDeoo/starlight-themes/edit/main/',
     },
