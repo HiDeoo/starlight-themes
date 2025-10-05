@@ -37,32 +37,38 @@ export const Themes: Record<ThemeId, Theme> = {
     link: '// TODO(HiDeoo) ',
     loader: async () => (await import('starlight-theme-black')).default,
     name: 'Black',
+    docName: 'Starlight Black',
     options: {},
   },
   flexoki: {
     link: '// TODO(HiDeoo) ',
     loader: async () => (await import('starlight-theme-flexoki')).default,
     name: 'Flexoki',
+    docName: 'Starlight Flexoki',
   },
   nova: {
     link: '// TODO(HiDeoo) ',
     loader: async () => (await import('starlight-theme-nova')).default,
     name: 'Nova',
+    docName: 'Starlight Nova',
   },
   nextjs: {
     link: '// TODO(HiDeoo) ',
     loader: async () => (await import('starlight-theme-next')).default,
     name: 'Next.js',
+    docName: 'Starlight Next.js',
   },
   galaxy: {
     link: '// TODO(HiDeoo) ',
     loader: async () => (await import('starlight-theme-galaxy')).default,
     name: 'Galaxy',
+    docName: 'Starlight Galaxy',
   },
   page: {
     link: '// TODO(HiDeoo) ',
     loader: async () => (await import('@pelagornis/page')).default,
     name: 'Page',
+    docName: 'Starlight Page',
   },
 }
 
