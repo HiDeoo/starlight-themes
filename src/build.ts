@@ -5,12 +5,6 @@ import { build } from 'astro'
 import { getAstroConfig } from './libs/astro'
 import { ThemesIds, type ThemeId } from './libs/theme'
 
-// TODO(HiDeoo) ensure all links in content work no matter the theme
-// TODO(HiDeoo) make sure we enable most features in Starlight
-// TODO(HiDeoo) edit links
-// TODO(HiDeoo) dual header logo: home + theme home
-// TODO(HiDeoo) page title (ends with theme name?)
-
 const distDir = new URL('../dist/', import.meta.url)
 
 await run()

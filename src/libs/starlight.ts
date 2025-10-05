@@ -37,15 +37,17 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
   })
 
   const config: StarlightUserConfig = {
+    description: '// TODO(HiDeoo) ',
+    editLink: {
+      baseUrl: 'https://github.com/HiDeoo/starlight-themes/edit/main/',
+    },
+    lastUpdated: true,
     plugins,
-    // TODO(HiDeoo)
+    routeMiddleware: './src/themes/routeData.ts',
     sidebar: [
       {
-        label: 'Guides',
-        items: [
-          // Each item here is one entry in the navigation menu.
-          { label: 'Example Guide', slug: 'guides/example' },
-        ],
+        label: 'Start Here',
+        items: ['kitchen-sink'],
       },
       { label: 'Examples', autogenerate: { directory: 'examples' } },
     ],

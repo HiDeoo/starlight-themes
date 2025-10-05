@@ -12,8 +12,6 @@ export const ThemesIds = [
   'page',
 ] as const
 
-// TODO(HiDeoo) CTA to add themes to the list
-
 export const Themes: Record<ThemeId, Theme> = {
   rapide: {
     link: 'https://starlight-theme-rapide.vercel.app/',

@@ -1,7 +1,6 @@
 ---
 title: Kitchen sink
 sidebar:
-  order: 1
   badge: Demo
 ---
 
@@ -44,9 +43,7 @@ import { Badge } from '@astrojs/starlight/components'
 
 import { Card } from '@astrojs/starlight/components'
 
-<Card title="Card title">
-  The content of the card that can use any other Markdown syntax.
-</Card>
+<Card title="Card title">The content of the card that can use any other Markdown syntax.</Card>
 
 ### Card grid
 
@@ -65,11 +62,7 @@ import { CardGrid } from '@astrojs/starlight/components'
 
 import { LinkCard } from '@astrojs/starlight/components'
 
-<LinkCard
-  title="Link title"
-  description="The description of the link."
-  href="#_"
-/>
+<LinkCard title="Link title" description="The description of the link." href="#_" />
 
 ### Link card grid
 
@@ -96,9 +89,7 @@ The content of the [disclosure](https://starlight.astro.build/guides/authoring-c
 
 <p>A paragraph with a variable: {Astro.props.foo}</p>
 
-With highlighted content.
-
-Including insertions or deletions.
+With highlighted content. Including insertions or deletions.
 ```
 
 ### Diff
@@ -114,15 +105,12 @@ Including insertions or deletions.
 
 ```astro title="example.astro" {"1. Keep the existing icon.":5-6} del={"2. Remove the button.":8-9} ins={"3. Add a link.":11-12}
 ---
-import { Icon } from '@astrojs/starlight/components';
+import { Icon } from '@astrojs/starlight/components'
 ---
-
 
 <Icon name="seti:lock" />
 
-
 <button type="button">Login</button>
-
 
 <a href="/login/">Login</a>
 ```
