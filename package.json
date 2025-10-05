@@ -47,7 +47,11 @@
   "private": true,
   "sideEffects": false,
   "keywords": [
-    "// TODO(HiDeoo)"
+    "starlight",
+    "themes",
+    "preview",
+    "documentation",
+    "astro"
   ],
   "homepage": "https://github.com/HiDeoo/starlight-themes",
   "repository": {
