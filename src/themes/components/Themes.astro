@@ -11,7 +11,7 @@ import Theme from './Theme.astro'
 const Wrapper = starlightThemes.currentId === 'black' ? ContainerSection : 'div'
 ---
 
-<Wrapper>
+<Wrapper class="not-content">
   <ul>
     {ThemesIds.map((id) => <Theme {id} />)}
   </ul>

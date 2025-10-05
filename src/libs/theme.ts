@@ -1,6 +1,16 @@
 import type { StarlightPlugin } from '@astrojs/starlight/types'
 
-export const ThemesIds = ['rapide', 'catppuccin', 'ion', 'black', 'flexoki', 'nova', 'nextjs', 'galaxy'] as const
+export const ThemesIds = [
+  'rapide',
+  'catppuccin',
+  'ion',
+  'black',
+  'flexoki',
+  'nova',
+  'nextjs',
+  'galaxy',
+  'page',
+] as const
 
 // TODO(HiDeoo) test updates with issue closed
 // TODO(HiDeoo) CTA to add themes to the list
@@ -48,6 +58,11 @@ export const Themes: Record<ThemeId, Theme> = {
     link: '// TODO(HiDeoo) ',
     loader: async () => (await import('starlight-theme-galaxy')).default,
     name: 'Galaxy',
+  },
+  page: {
+    link: '// TODO(HiDeoo) ',
+    loader: async () => (await import('@pelagornis/page')).default,
+    name: 'Page',
   },
 }
 

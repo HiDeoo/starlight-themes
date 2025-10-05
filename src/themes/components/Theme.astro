@@ -73,5 +73,7 @@ const theme = Themes[id]
     font-size: var(--sl-text-lg);
     font-weight: 600;
     line-height: var(--sl-line-height-headings);
+    /* The Page theme does not respect `.not-content`. */
+    margin-block: 0 !important;
   }
 </style>

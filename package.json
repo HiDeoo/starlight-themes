@@ -18,6 +18,7 @@
     "@catppuccin/starlight": "^1.0.2",
     "@fontsource/geist-mono": "^5.2.7",
     "@fontsource/geist-sans": "^5.2.5",
+    "@pelagornis/page": "^1.0.7",
     "astro": "^5.14.1",
     "sharp": "^0.34.4",
     "starlight-ion-theme": "^2.3.1",
