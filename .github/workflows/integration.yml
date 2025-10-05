@@ -1,10 +1,9 @@
 name: integration
 
 on:
-  # TODO(HiDeoo)
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main

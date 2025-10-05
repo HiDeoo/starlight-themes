@@ -2,9 +2,8 @@ name: theme tracker
 
 on:
   workflow_dispatch:
-  # TODO(HiDeoo)
-  # schedule:
-  #   - cron: '35 0 * * *'
+  schedule:
+    - cron: '55 0 * * *'
 
 permissions:
   contents: write
