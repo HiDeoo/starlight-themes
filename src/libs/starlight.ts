@@ -36,26 +36,30 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
     },
   })
 
-  astroConfig.integrations?.push(
-    starlight({
-      plugins,
-      // TODO(HiDeoo)
-      sidebar: [
-        {
-          label: 'Guides',
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: 'Example Guide', slug: 'guides/example' },
-          ],
-        },
-        { label: 'Examples', autogenerate: { directory: 'examples' } },
-      ],
-      social: [
-        { icon: 'starlight', label: 'Documentation', href: 'https://starlight.astro.build/' },
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' },
-        { icon: 'discord', label: 'Discord', href: 'https://astro.build/chat' },
-      ],
-      title: 'Starlight Themes',
-    }),
-  )
+  const config: StarlightUserConfig = {
+    plugins,
+    // TODO(HiDeoo)
+    sidebar: [
+      {
+        label: 'Guides',
+        items: [
+          // Each item here is one entry in the navigation menu.
+          { label: 'Example Guide', slug: 'guides/example' },
+        ],
+      },
+      { label: 'Examples', autogenerate: { directory: 'examples' } },
+    ],
+    social: [
+      { icon: 'starlight', label: 'Documentation', href: 'https://starlight.astro.build/' },
+      { icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' },
+      { icon: 'discord', label: 'Discord', href: 'https://astro.build/chat' },
+    ],
+    title: 'Starlight Themes',
+  }
+
+  // The Nova theme disables by default Expressive Code if not explicitly configured so this prevents rendering the
+  // example using the `<Code>` component.
+  if (id === 'nova') config.expressiveCode = true
+
+  astroConfig.integrations?.push(starlight(config))
 }
