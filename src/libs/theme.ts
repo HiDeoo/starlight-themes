@@ -1,6 +1,8 @@
 import type { StarlightPlugin } from '@astrojs/starlight/types'
 
-export const ThemesIds = ['rapide', 'catppuccin', 'ion', 'black'] as const
+export const ThemesIds = ['rapide', 'catppuccin', 'ion', 'black', 'flexoki'] as const
+
+// TODO(HiDeoo) test updates with issue closed
 
 export const Themes: Record<ThemeId, Theme> = {
   rapide: {
@@ -25,6 +27,11 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('starlight-theme-black')).default,
     name: 'Black',
     options: {},
+  },
+  flexoki: {
+    link: '// TODO(HiDeoo) ',
+    loader: async () => (await import('starlight-theme-flexoki')).default,
+    name: 'Flexoki',
   },
 }
 

@@ -32,6 +32,9 @@ importers:
       starlight-theme-black:
         specifier: ^0.6.0
         version: 0.6.0(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
+      starlight-theme-flexoki:
+        specifier: ^0.2.0
+        version: 0.2.0(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
       starlight-theme-rapide:
         specifier: ^0.5.1
         version: 0.5.1(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
@@ -3003,6 +3006,12 @@ packages:
     resolution: {integrity: sha512-SoYAlyFEyRizcxQXd1ibfAGytmI5gVbSBReK25YFeASI51YwdB9bQtmp14/d70KgfD6kD7SRidhOrPBMD4S3AA==}
     peerDependencies:
       '@astrojs/starlight': '>=0.30.0'
+
+  starlight-theme-flexoki@0.2.0:
+    resolution: {integrity: sha512-xgQZVhL90UTCU+sd8BLWsMU2n8cdeVpiTVlIxLq1Ov7q0SOUvkUjetbAkuYcxsz8+hwNtHyaxFeNtXLNPweb5w==}
+    engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.34'
 
   starlight-theme-rapide@0.5.1:
     resolution: {integrity: sha512-QRF6mzcYHLEX5UpUvOPXVVwISS298siIJLcKextoMLhXcnF12nX+IYJ0LNxFk9XaPbX9uDXIieSBJf5Pztkteg==}
@@ -7371,6 +7380,10 @@ snapshots:
       '@fontsource/geist-sans': 5.2.5
       '@pagefind/default-ui': 1.4.0
       marked: 15.0.12
+
+  starlight-theme-flexoki@0.2.0(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))):
+    dependencies:
+      '@astrojs/starlight': 0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))
 
   starlight-theme-rapide@0.5.1(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))):
     dependencies:
