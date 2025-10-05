@@ -57,8 +57,8 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
     title: 'Starlight Themes',
   }
 
-  // The Nova theme disables by default Expressive Code if not explicitly configured so this prevents rendering the
-  // example using the `<Code>` component.
+  // The Nova theme disables Expressive Code by default if not explicitly configured so this prevents rendering the
+  // examples using the `<Code>` component.
   if (id === 'nova') config.expressiveCode = true
 
   astroConfig.integrations?.push(starlight(config))
