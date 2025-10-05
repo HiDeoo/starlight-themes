@@ -35,6 +35,9 @@ importers:
       starlight-theme-flexoki:
         specifier: ^0.2.0
         version: 0.2.0(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
+      starlight-theme-next:
+        specifier: ^0.3.2
+        version: 0.3.2(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
       starlight-theme-nova:
         specifier: ^0.9.5
         version: 0.9.5(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))(typescript@5.9.3)
@@ -3127,6 +3130,12 @@ packages:
 
   starlight-theme-flexoki@0.2.0:
     resolution: {integrity: sha512-xgQZVhL90UTCU+sd8BLWsMU2n8cdeVpiTVlIxLq1Ov7q0SOUvkUjetbAkuYcxsz8+hwNtHyaxFeNtXLNPweb5w==}
+    engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.34'
+
+  starlight-theme-next@0.3.2:
+    resolution: {integrity: sha512-GQGhZ67nZ09pWVQoecl1N+H/1EUkUOvLVpjqOCHlkSotCblwrWrj4guEsdF9aKkNqiyTi6zzwZ5sxQospvdHOg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
     peerDependencies:
       '@astrojs/starlight': '>=0.34'
@@ -7673,6 +7682,10 @@ snapshots:
       marked: 15.0.12
 
   starlight-theme-flexoki@0.2.0(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))):
+    dependencies:
+      '@astrojs/starlight': 0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))
+
+  starlight-theme-next@0.3.2(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))):
     dependencies:
       '@astrojs/starlight': 0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))
 
