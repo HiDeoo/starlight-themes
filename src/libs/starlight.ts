@@ -36,11 +36,22 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
     },
   })
 
+  const site =
+    (process.env['CONTEXT'] === 'production' ? process.env['URL'] : process.env['DEPLOY_PRIME_URL']) ??
+    'https://starlight-themes.netlify.app/'
+
   const config: StarlightUserConfig = {
     description: 'The one place to preview all Starlight themes.',
     editLink: {
       baseUrl: 'https://github.com/HiDeoo/starlight-themes/edit/main/',
     },
+    head: [
+      {
+        tag: 'meta',
+        attrs: { property: 'og:image', content: new URL('og.jpg', site).href },
+      },
+      { tag: 'meta', attrs: { property: 'og:image:alt', content: 'The one place to preview all Starlight themes.' } },
+    ],
     lastUpdated: true,
     plugins,
     routeMiddleware: './src/themes/routeData.ts',
