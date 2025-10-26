@@ -25,6 +25,7 @@ export async function getAstroConfig(mode: 'dev' | 'prod', id?: ThemeId) {
     integrations: [],
     mode: mode === 'dev' ? 'development' : 'production',
     outDir: fileURLToPath(outDir),
+    site: getSite(),
     srcDir: './src/themes',
     trailingSlash: 'always',
     vite: {
@@ -43,4 +44,11 @@ export async function getAstroConfig(mode: 'dev' | 'prod', id?: ThemeId) {
   await addStarlightIntegration(config, id)
 
   return { config, outDir }
+}
+
+export function getSite() {
+  return (
+    (process.env['CONTEXT'] === 'production' ? process.env['URL'] : process.env['DEPLOY_PRIME_URL']) ??
+    'https://starlight-themes.netlify.app/'
+  )
 }

@@ -2,6 +2,7 @@ import starlight from '@astrojs/starlight'
 import type { StarlightUserConfig } from '@astrojs/starlight/types'
 import type { AstroInlineConfig } from 'astro'
 
+import { getSite } from './astro'
 import { Themes, type ThemeId } from './theme'
 
 export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id?: ThemeId) {
@@ -36,9 +37,7 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
     },
   })
 
-  const site =
-    (process.env['CONTEXT'] === 'production' ? process.env['URL'] : process.env['DEPLOY_PRIME_URL']) ??
-    'https://starlight-themes.netlify.app/'
+  const site = getSite()
 
   const config: StarlightUserConfig = {
     description: 'The one place to preview all Starlight themes.',
