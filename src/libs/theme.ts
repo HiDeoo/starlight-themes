@@ -10,6 +10,7 @@ export const ThemesIds = [
   'nextjs',
   'galaxy',
   'page',
+  'gruvbox',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -66,6 +67,12 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('@pelagornis/page')).default,
     name: 'Page',
     docName: 'Starlight Page',
+  },
+  gruvbox: {
+    link: 'https://starlight-theme-gruvbox.otterlord.dev/',
+    loader: async () => (await import('starlight-theme-gruvbox')).default,
+    name: 'Gruvbox',
+    docName: 'Starlight Gruvbox',
   },
 }
 
