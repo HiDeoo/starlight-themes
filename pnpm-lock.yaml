@@ -20,9 +20,18 @@ importers:
       '@fontsource/geist-sans':
         specifier: ^5.2.5
         version: 5.2.5
+      '@fontsource/inter':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@fontsource/jetbrains-mono':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@pelagornis/page':
         specifier: ^1.0.7
         version: 1.0.7(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
+      '@six-tech/starlight-theme-six':
+        specifier: ^1.0.16
+        version: 1.0.16(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))(@fontsource/inter@5.2.8)(@fontsource/jetbrains-mono@5.2.8)(sharp@0.34.4)
       astro:
         specifier: ^5.14.1
         version: 5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)
@@ -475,6 +484,12 @@ packages:
   '@fontsource/geist-sans@5.2.5':
     resolution: {integrity: sha512-anllOHyJbElRs9fV15TeDRqAeb1IKm4bSknPl6ZMoyPTx1BBy7logudcUwpNjmQLkzn4Q0JGQLRCUKJYoyST6A==}
 
+  '@fontsource/inter@5.2.8':
+    resolution: {integrity: sha512-P6r5WnJoKiNVV+zvW2xM13gNdFhAEpQ9dQJHt3naLvfg+LkF2ldgSLiF4T41lf1SQCM9QmkqPTn4TH568IRagg==}
+
+  '@fontsource/jetbrains-mono@5.2.8':
+    resolution: {integrity: sha512-6w8/SG4kqvIMu7xd7wt6x3idn1Qux3p9N62s6G3rfldOUYHpWcc2FKrqf+Vo44jRvqWj2oAtTHrZXEP23oSKwQ==}
+
   '@hideoo/eslint-config@4.0.0':
     resolution: {integrity: sha512-QtcFEH37jaCNp2oWBQ1goySA7LAgA334RIhigm3PV4sfvbtUInXO5Hau6DePHJOwgku5niRR/qvDq4dgsmjpsQ==}
     peerDependencies:
@@ -876,6 +891,14 @@ packages:
 
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
+
+  '@six-tech/starlight-theme-six@1.0.16':
+    resolution: {integrity: sha512-nEon5Ce1IxmivIzYYYT9iiMCAKQ9r1G9z6/jtZNHt4ZgTFllEtj2KLjquLnJc5vYV8vpm3Df9iOrhRTlRSQsqQ==}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.30.0'
+      '@fontsource/inter': ^5.2.6
+      '@fontsource/jetbrains-mono': ^5.2.6
+      sharp: '>=0.32.0 || >=0.33.0'
 
   '@swc/helpers@0.5.17':
     resolution: {integrity: sha512-5IKx/Y13RsYd+sauPb2x+U/xZikHjolzfuDgTAl/Tdf3Q8rslRvC19NKDLgAJQ6wsqADk10ntlv08nPFw/gO/A==}
@@ -4190,6 +4213,10 @@ snapshots:
 
   '@fontsource/geist-sans@5.2.5': {}
 
+  '@fontsource/inter@5.2.8': {}
+
+  '@fontsource/jetbrains-mono@5.2.8': {}
+
   '@hideoo/eslint-config@4.0.0(eslint@9.36.0)(typescript@5.9.3)':
     dependencies:
       '@eslint/js': 9.16.0
@@ -4580,6 +4607,15 @@ snapshots:
       '@types/hast': 3.0.4
 
   '@shikijs/vscode-textmate@10.0.2': {}
+
+  '@six-tech/starlight-theme-six@1.0.16(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))(@fontsource/inter@5.2.8)(@fontsource/jetbrains-mono@5.2.8)(sharp@0.34.4)':
+    dependencies:
+      '@astrojs/starlight': 0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))
+      '@fontsource/inter': 5.2.8
+      '@fontsource/jetbrains-mono': 5.2.8
+      '@pagefind/default-ui': 1.4.0
+      marked: 15.0.12
+      sharp: 0.34.4
 
   '@swc/helpers@0.5.17':
     dependencies:
