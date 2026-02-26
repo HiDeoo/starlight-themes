@@ -12,6 +12,7 @@ export const ThemesIds = [
   'page',
   'gruvbox',
   'six',
+  'vintage',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -81,6 +82,12 @@ export const Themes: Record<ThemeId, Theme> = {
     name: 'Six',
     docName: 'Starlight Six',
     options: {},
+  },
+  vintage: {
+    link: 'https://starlight-theme-vintage.netlify.app/',
+    loader: async () => (await import('starlight-theme-vintage')).default,
+    name: 'Vintage',
+    docName: 'Starlight Vintage',
   },
 }
 
