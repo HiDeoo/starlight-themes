@@ -31,7 +31,8 @@
     "starlight-theme-gruvbox": "^1.0.0",
     "starlight-theme-next": "^0.3.2",
     "starlight-theme-nova": "^0.9.5",
-    "starlight-theme-rapide": "^0.5.1"
+    "starlight-theme-rapide": "^0.5.1",
+    "starlight-theme-vintage": "^0.1.0"
   },
   "devDependencies": {
     "@hideoo/eslint-config": "^4.0.0",

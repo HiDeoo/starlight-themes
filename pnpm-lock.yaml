@@ -62,6 +62,9 @@ importers:
       starlight-theme-rapide:
         specifier: ^0.5.1
         version: 0.5.1(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
+      starlight-theme-vintage:
+        specifier: ^0.1.0
+        version: 0.1.0(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
     devDependencies:
       '@hideoo/eslint-config':
         specifier: ^4.0.0
@@ -3262,6 +3265,12 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       '@astrojs/starlight': '>=0.34.0'
+
+  starlight-theme-vintage@0.1.0:
+    resolution: {integrity: sha512-xHp5ovkqkg66TpRfWV85lIPQ8/F2eiYxINnj8fKseBgnzOUVts0sGMFozzrC1QURffiN1LjtdwiXT9PL7ZrfZg==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.37.0'
 
   stop-iteration-iterator@1.1.0:
     resolution: {integrity: sha512-eLoXW/DHyl62zxY4SCaIgnRhuMr6ri4juEYARS8E6sCEqzKpOiE521Ucofdx+KnDZl5xmvGYaaKCk5FEOxJCoQ==}
@@ -7950,6 +7959,10 @@ snapshots:
       - typescript
 
   starlight-theme-rapide@0.5.1(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))):
+    dependencies:
+      '@astrojs/starlight': 0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))
+
+  starlight-theme-vintage@0.1.0(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))):
     dependencies:
       '@astrojs/starlight': 0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))
 
