@@ -13,6 +13,7 @@ export const ThemesIds = [
   'gruvbox',
   'six',
   'vintage',
+  'nord',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -88,6 +89,12 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('starlight-theme-vintage')).default,
     name: 'Vintage',
     docName: 'Starlight Vintage',
+  },
+  nord: {
+    link: 'https://kazettique.github.io/starlight-theme-nord/',
+    loader: async () => (await import('starlight-theme-nord')).default,
+    name: 'Nord',
+    docName: 'Starlight Nord',
   },
 }
 
