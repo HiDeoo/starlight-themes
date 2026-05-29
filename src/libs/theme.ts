@@ -13,6 +13,7 @@ export const ThemesIds = [
   'gruvbox',
   'six',
   'vintage',
+  'terminal',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -88,6 +89,12 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('starlight-theme-vintage')).default,
     name: 'Vintage',
     docName: 'Starlight Vintage',
+  },
+  terminal: {
+    link: 'https://madlinux7.github.io/starlight-theme-terminal/',
+    loader: async () => (await import('starlight-theme-terminal')).default,
+    name: 'Terminal',
+    docName: 'Starlight Terminal',
   },
 }
 
