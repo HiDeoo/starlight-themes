@@ -13,6 +13,7 @@ export const ThemesIds = [
   'gruvbox',
   'six',
   'vintage',
+  'obsidian',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -88,6 +89,12 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('starlight-theme-vintage')).default,
     name: 'Vintage',
     docName: 'Starlight Vintage',
+  },
+  obsidian: {
+    link: 'https://starlight-theme-vintage.netlify.app/',
+    loader: async () => (await import('starlight-theme-obsidian')).default,
+    name: 'Obsidian',
+    docName: 'Starlight Obsidian',
   },
 }
 

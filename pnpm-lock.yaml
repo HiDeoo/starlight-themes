@@ -59,6 +59,9 @@ importers:
       starlight-theme-nova:
         specifier: ^0.9.5
         version: 0.9.5(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))(typescript@5.9.3)
+      starlight-theme-obsidian:
+        specifier: github:fevol/starlight-theme-obsidian#path:packages/starlight-theme-obsidian
+        version: https://codeload.github.com/fevol/starlight-theme-obsidian/tar.gz/438d41647d9e990b7ce1d95b6793fd7c303df142#path:packages/starlight-theme-obsidian(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))
       starlight-theme-rapide:
         specifier: ^0.5.1
         version: 0.5.1(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
@@ -3258,6 +3261,17 @@ packages:
       '@astrojs/starlight': '*'
     peerDependenciesMeta:
       '@astrojs/starlight':
+        optional: true
+
+  starlight-theme-obsidian@https://codeload.github.com/fevol/starlight-theme-obsidian/tar.gz/438d41647d9e990b7ce1d95b6793fd7c303df142#path:packages/starlight-theme-obsidian:
+    resolution: {path: packages/starlight-theme-obsidian, tarball: https://codeload.github.com/fevol/starlight-theme-obsidian/tar.gz/438d41647d9e990b7ce1d95b6793fd7c303df142}
+    version: 0.4.1
+    peerDependencies:
+      '@astrojs/starlight': ^0.38.0
+      astro: ^6.0.0
+      starlight-site-graph: '>=0.6.0'
+    peerDependenciesMeta:
+      starlight-site-graph:
         optional: true
 
   starlight-theme-rapide@0.5.1:
@@ -7957,6 +7971,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
       - typescript
+
+  starlight-theme-obsidian@https://codeload.github.com/fevol/starlight-theme-obsidian/tar.gz/438d41647d9e990b7ce1d95b6793fd7c303df142#path:packages/starlight-theme-obsidian(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)):
+    dependencies:
+      '@astrojs/starlight': 0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))
+      astro: 5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)
 
   starlight-theme-rapide@0.5.1(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))):
     dependencies:
