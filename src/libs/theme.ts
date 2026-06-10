@@ -17,6 +17,7 @@ export const ThemesIds = [
   'nord',
   'terminal',
   'celestia',
+  'lucode',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -119,6 +120,12 @@ export const Themes: Record<ThemeId, Theme> = {
     overrides: {
       Head: true,
     },
+  },
+  lucode: {
+    link: 'https://lucas-labs.github.io/lucode-starlight-theme/',
+    loader: async () => (await import('lucode-starlight')).default,
+    name: 'Lucode',
+    docName: 'Starlight Lucode',
   },
 }
 
