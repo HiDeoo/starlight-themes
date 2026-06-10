@@ -56,12 +56,18 @@ importers:
       starlight-theme-next:
         specifier: ^0.3.2
         version: 0.3.2(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
+      starlight-theme-nord:
+        specifier: ^0.1.4
+        version: 0.1.4(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
       starlight-theme-nova:
         specifier: ^0.9.5
         version: 0.9.5(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))(typescript@5.9.3)
       starlight-theme-rapide:
         specifier: ^0.5.1
         version: 0.5.1(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
+      starlight-theme-rose-pine:
+        specifier: ^0.1.2
+        version: 0.1.2(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
       starlight-theme-terminal:
         specifier: ^1.2.0
         version: 1.2.0(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))
@@ -3267,6 +3273,12 @@ packages:
     peerDependencies:
       '@astrojs/starlight': '>=0.34'
 
+  starlight-theme-nord@0.1.4:
+    resolution: {integrity: sha512-oU3I3ZyTM6byNFTBihKwD1bbv3EUGNPM7YBSPTNjIt7le+DuFKAF6AEje0pMkFHkgn5hLjXZP739eKrqsHsJOA==}
+    engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.38'
+
   starlight-theme-nova@0.9.5:
     resolution: {integrity: sha512-wI+g9gnNw+nkJkC+4q+k/9B/IfPiQLUvci6vJfscqc1CjBtjs0DFRSsHGe0DrFm7CGHlrUBXKbMI+WIOPN6MMw==}
     peerDependencies:
@@ -3280,6 +3292,12 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       '@astrojs/starlight': '>=0.34.0'
+
+  starlight-theme-rose-pine@0.1.2:
+    resolution: {integrity: sha512-zL7/cLqdh7vg6yajiDdISPQcgxeqDgbtLkRq1k16issh61SsLSekdniu3/ylp63F5JmNbrmRFtgsxqHqxbG6Lw==}
+    engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.36'
 
   starlight-theme-terminal@1.2.0:
     resolution: {integrity: sha512-sqCq2OdR0/LoeyPeIqZyWIbIeJ2FR1i73Sex+koRIEVUNSyfM6Bic2ggMT7Rw8mR7A1bGT7mWmIvKfYAWJOr9Q==}
@@ -7980,6 +7998,10 @@ snapshots:
     dependencies:
       '@astrojs/starlight': 0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))
 
+  starlight-theme-nord@0.1.4(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))):
+    dependencies:
+      '@astrojs/starlight': 0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))
+
   starlight-theme-nova@0.9.5(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)))(typescript@5.9.3):
     dependencies:
       '@aria-ui/core': 0.0.22
@@ -8000,6 +8022,10 @@ snapshots:
       - typescript
 
   starlight-theme-rapide@0.5.1(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))):
+    dependencies:
+      '@astrojs/starlight': 0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))
+
+  starlight-theme-rose-pine@0.1.2(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))):
     dependencies:
       '@astrojs/starlight': 0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3))
 

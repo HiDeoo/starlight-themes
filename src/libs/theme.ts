@@ -13,6 +13,8 @@ export const ThemesIds = [
   'gruvbox',
   'six',
   'vintage',
+  'rose-pine',
+  'nord',
   'terminal',
 ] as const
 
@@ -89,6 +91,18 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('starlight-theme-vintage')).default,
     name: 'Vintage',
     docName: 'Starlight Vintage',
+  },
+  'rose-pine': {
+    link: 'https://starlight-theme-rose-pine.trueberryless.org/',
+    loader: async () => (await import('starlight-theme-rose-pine')).default,
+    name: 'Rosé Pine',
+    docName: 'Starlight Rosé Pine',
+  },
+  nord: {
+    link: 'https://kazettique.github.io/starlight-theme-nord/',
+    loader: async () => (await import('starlight-theme-nord')).default,
+    name: 'Nord',
+    docName: 'Starlight Nord',
   },
   terminal: {
     link: 'https://madlinux7.github.io/starlight-theme-terminal/',
