@@ -19,7 +19,11 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
     name: 'starlight-themes-overrides',
     hooks: {
       'config:setup'({ config, updateConfig }) {
-        if (config.components?.Head)
+        const theme = id ? Themes[id] : undefined
+        const headOverride =
+          id && theme?.overrides?.Head ? `./src/overrides/themes/${id}/Head.astro` : './src/overrides/Head.astro'
+
+        if (config.components?.Head && !theme?.overrides?.Head)
           throw new Error(`The theme '${id}' overrides the 'Head' component, which is not supported.`)
         if (config.components?.SkipLink)
           throw new Error(`The theme '${id}' overrides the 'SkipLink' component, which is not supported.`)
@@ -29,7 +33,7 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
         updateConfig({
           components: {
             ...config.components,
-            Head: './src/overrides/Head.astro',
+            Head: headOverride,
             SkipLink: './src/overrides/SkipLink.astro',
           },
         })
@@ -69,9 +73,9 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
     title: 'Starlight Themes',
   }
 
-  // The Nova theme disables Expressive Code by default if not explicitly configured so this prevents rendering the
+  // Some themes disable Expressive Code by default if not explicitly configured so this prevents rendering the
   // examples using the `<Code>` component.
-  if (id === 'nova') config.expressiveCode = true
+  if (id === 'nova' || id === 'celestia') config.expressiveCode = true
 
   astroConfig.integrations?.push(starlight(config))
 }

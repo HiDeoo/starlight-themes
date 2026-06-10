@@ -16,6 +16,7 @@ export const ThemesIds = [
   'rose-pine',
   'nord',
   'terminal',
+  'celestia',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -110,6 +111,15 @@ export const Themes: Record<ThemeId, Theme> = {
     name: 'Terminal',
     docName: 'Starlight Terminal',
   },
+  celestia: {
+    link: 'https://starlight-theme-celestia.devxy.codefloe.page/',
+    loader: async () => (await import('starlight-theme-celestia')).default,
+    name: 'Celestia',
+    docName: 'Starlight Celestia',
+    overrides: {
+      Head: true,
+    },
+  },
 }
 
 export function getThemePathname(url: URL, id?: ThemeId) {
@@ -134,6 +144,9 @@ interface Theme {
   link: string
   name: string
   options?: Record<string, unknown>
+  overrides?: {
+    Head?: true
+  }
   // The name of the theme as shown in the Starlight documentation.
   docName?: string
 }
