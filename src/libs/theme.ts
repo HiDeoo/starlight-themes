@@ -14,6 +14,7 @@ export const ThemesIds = [
   'six',
   'vintage',
   'rose-pine',
+  'nord',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -95,6 +96,12 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('starlight-theme-rose-pine')).default,
     name: 'Rosé Pine',
     docName: 'Starlight Rosé Pine',
+  },
+  nord: {
+    link: 'https://kazettique.github.io/starlight-theme-nord/',
+    loader: async () => (await import('starlight-theme-nord')).default,
+    name: 'Nord',
+    docName: 'Starlight Nord',
   },
 }
 
