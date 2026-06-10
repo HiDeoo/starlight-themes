@@ -1,7 +1,8 @@
 ---
 import Default from '@astrojs/starlight/components/Head.astro'
-import { Font } from 'astro:assets'
+
+import ThemesHead from '../components/Head.astro'
 ---
 
 <Default><slot /></Default>
-<Font cssVariable="--font-patrick-hand" preload />
+<ThemesHead />
