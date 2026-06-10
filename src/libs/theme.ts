@@ -13,6 +13,7 @@ export const ThemesIds = [
   'gruvbox',
   'six',
   'vintage',
+  'rose-pine',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -88,6 +89,12 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('starlight-theme-vintage')).default,
     name: 'Vintage',
     docName: 'Starlight Vintage',
+  },
+  'rose-pine': {
+    link: 'https://starlight-theme-rose-pine.trueberryless.org/',
+    loader: async () => (await import('starlight-theme-rose-pine')).default,
+    name: 'Rosé Pine',
+    docName: 'Starlight Rosé Pine',
   },
 }
 

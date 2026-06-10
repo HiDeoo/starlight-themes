@@ -32,6 +32,7 @@
     "starlight-theme-next": "^0.3.2",
     "starlight-theme-nova": "^0.9.5",
     "starlight-theme-rapide": "^0.5.1",
+    "starlight-theme-rose-pine": "^0.1.2",
     "starlight-theme-vintage": "^0.1.0"
   },
   "devDependencies": {
