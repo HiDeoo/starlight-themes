@@ -35,6 +35,9 @@ importers:
       astro:
         specifier: ^5.14.1
         version: 5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.9.0)
+      lucode-starlight:
+        specifier: ^0.1.6
+        version: 0.1.6(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.9.0)))
       sharp:
         specifier: ^0.34.4
         version: 0.34.4
@@ -2526,6 +2529,11 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
+  lucode-starlight@0.1.6:
+    resolution: {integrity: sha512-rLHcTNQmN1dmk170QyxyZoCs5TWHDZyEQsTU2uT0+RNaFhj8PaWm9huKVNPCRcEXvrOYWD27Z6EsxsHaeNhKqg==}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.38.3'
+
   magic-string@0.30.19:
     resolution: {integrity: sha512-2N21sPY9Ws53PZvsEpVtNuSW+ScYbQdp4b9qUaL+9QkHUrGFKo56Lg9Emg5s9V/qrtNBmiR01sYhUOwu3H+VOw==}
 
@@ -2542,6 +2550,11 @@ packages:
   marked@15.0.12:
     resolution: {integrity: sha512-8dD6FusOQSrpv9Z1rdNMdlSgQOIP880DHqnohobOmYLElGEqAL/JvxvuxZO16r4HtjTlfPRDC1hbvxC9dPN2nA==}
     engines: {node: '>= 18'}
+    hasBin: true
+
+  marked@18.0.5:
+    resolution: {integrity: sha512-S6GcvALHg6K4ohtu4E7x0a1AqhAjp6cV8KhLSyN9qVapnzJkusVBxZRcIU9AeYsbe6P1hKDusSbEOzGyyuce6w==}
+    engines: {node: '>= 20'}
     hasBin: true
 
   math-intrinsics@1.1.0:
@@ -6958,6 +6971,12 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
+  lucode-starlight@0.1.6(@astrojs/starlight@0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.9.0))):
+    dependencies:
+      '@astrojs/starlight': 0.36.0(astro@5.14.1(@types/node@22.18.8)(rollup@4.52.4)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.9.0))
+      '@pagefind/default-ui': 1.5.2
+      marked: 18.0.5
+
   magic-string@0.30.19:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -6973,6 +6992,8 @@ snapshots:
   markdown-table@3.0.4: {}
 
   marked@15.0.12: {}
+
+  marked@18.0.5: {}
 
   math-intrinsics@1.1.0: {}
 

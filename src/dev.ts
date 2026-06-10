@@ -6,7 +6,7 @@ import type { ThemeId } from './libs/theme'
 await run()
 
 async function run() {
-  await devStarlight('celestia')
+  await devStarlight()
 }
 
 async function devStarlight(id?: ThemeId) {
