@@ -18,6 +18,7 @@ export const ThemesIds = [
   'terminal',
   'celestia',
   'lucode',
+  'md3',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -126,6 +127,12 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('lucode-starlight')).default,
     name: 'Lucode',
     docName: 'Starlight Lucode',
+  },
+  md3: {
+    link: 'https://axiaobo7788.github.io/starlight-material-design-theme/',
+    loader: async () => (await import('starlight-theme-md3')).default,
+    name: 'MD3',
+    docName: 'Starlight MD3',
   },
 }
 
