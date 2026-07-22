@@ -63,7 +63,7 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
         label: 'Start Here',
         items: ['kitchen-sink'],
       },
-      { label: 'Examples', autogenerate: { directory: 'examples' } },
+      { label: 'Examples', items: [{ autogenerate: { directory: 'examples' } }] },
     ],
     social: [
       { icon: 'starlight', label: 'Documentation', href: 'https://starlight.astro.build/' },

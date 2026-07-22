@@ -13,15 +13,13 @@ export async function getAstroConfig(mode: 'dev' | 'prod', id?: ThemeId) {
 
   const config: AstroInlineConfig = {
     configFile: false,
-    experimental: {
-      fonts: [
-        {
-          provider: fontProviders.bunny(),
-          name: 'Patrick Hand',
-          cssVariable: '--font-patrick-hand',
-        },
-      ],
-    },
+    fonts: [
+      {
+        provider: fontProviders.bunny(),
+        name: 'Patrick Hand',
+        cssVariable: '--font-patrick-hand',
+      },
+    ],
     integrations: [],
     mode: mode === 'dev' ? 'development' : 'production',
     outDir: fileURLToPath(outDir),

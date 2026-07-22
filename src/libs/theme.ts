@@ -45,6 +45,9 @@ export const Themes: Record<ThemeId, Theme> = {
     name: 'Black',
     docName: 'Starlight Black',
     options: {},
+    overrides: {
+      Head: true,
+    },
   },
   flexoki: {
     link: 'https://delucis.github.io/starlight-theme-flexoki/',
