@@ -143,6 +143,7 @@ export const Themes: Record<ThemeId, Theme> = {
     link: 'https://starlight-theme-mdbook.netlify.app/',
     loader: async () => (await import('starlight-theme-mdbook')).default,
     name: 'mdBook',
+    docName: 'Starlight mdBook',
   },
   exquisitus: {
     link: 'https://starlight-theme-exquisitus.aka-300.workers.dev/',
