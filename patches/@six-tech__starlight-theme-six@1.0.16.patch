@@ -1,0 +1,13 @@
+diff --git a/src/styles/base.css b/src/styles/base.css
+index d46ad761e70233896ad79444027608f07f9ccb8b..ac166b68586898f01c5654693c126c140fec96d5 100644
+--- a/src/styles/base.css
++++ b/src/styles/base.css
+@@ -24,7 +24,7 @@
+   }
+ 
+   *,
+-  :after :before {
++  :after, :before {
+     box-sizing: border-box;
+     border: 0 solid #e5e7eb;
+   }

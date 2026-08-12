@@ -1,19 +1,14 @@
 ---
-import { ContainerSection } from 'starlight-theme-black/components'
-import starlightThemes from 'virtual:starlight-themes'
-
 import { ThemesIds } from '../../libs/theme'
 
 import Theme from './Theme.astro'
-
-const Wrapper = starlightThemes.currentId === 'black' ? ContainerSection : 'div'
 ---
 
-<Wrapper class="not-content">
+<div class="not-content">
   <ul>
     {ThemesIds.map((id) => <Theme {id} />)}
   </ul>
-</Wrapper>
+</div>
 
 <style>
   ul {
