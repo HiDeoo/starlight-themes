@@ -19,6 +19,8 @@ export const ThemesIds = [
   'celestia',
   'lucode',
   'md3',
+  'mdbook',
+  'exquisitus',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -136,6 +138,16 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('starlight-theme-md3')).default,
     name: 'MD3',
     docName: 'Starlight MD3',
+  },
+  mdbook: {
+    link: 'https://starlight-theme-mdbook.netlify.app/',
+    loader: async () => (await import('starlight-theme-mdbook')).default,
+    name: 'mdBook',
+  },
+  exquisitus: {
+    link: 'https://starlight-theme-exquisitus.aka-300.workers.dev/',
+    loader: async () => (await import('starlight-theme-exquisitus')).default,
+    name: 'Exquisitus',
   },
 }
 
