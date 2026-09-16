@@ -23,7 +23,7 @@ async function buildStarlight(id?: ThemeId) {
 
   // eslint-disable-next-line no-console
   console.info(
-    `\u001B[32m▶\u001B[0m \u001B[34mBuilding Starlight\u001B[0m \u001B[2m(theme:\u001B[0m ${id ?? 'default'}\u001B[2m)\u001B[0m`,
+    `\u{1B}[32m▶\u{1B}[0m \u{1B}[34mBuilding Starlight\u{1B}[0m \u{1B}[2m(theme:\u{1B}[0m ${id ?? 'default'}\u{1B}[2m)\u{1B}[0m`,
   )
 
   await build(config)

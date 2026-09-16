@@ -49,10 +49,10 @@ import { getThemePathname, Themes, ThemesIds } from '../libs/theme'
         select.addEventListener('change', (event) => {
           if (!(event.currentTarget instanceof HTMLSelectElement)) return
 
-          globalThis.location.pathname = event.currentTarget.value
+          location.pathname = event.currentTarget.value
         })
 
-        globalThis.addEventListener('pageshow', (event) => {
+        addEventListener('pageshow', (event) => {
           if (!event.persisted) return
 
           // If the page was loaded from a cache, the themes select selected index might not be in sync with the
