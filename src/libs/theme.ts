@@ -154,11 +154,11 @@ export const Themes: Record<ThemeId, Theme> = {
 
 export function getThemePathname(url: URL, id?: ThemeId) {
   const themeUrl = new URL(url)
-  const [, baseSegment] = themeUrl.pathname.split('/')
+  const [, baseSegment] = themeUrl.pathname.split('/', 2)
 
-  if (baseSegment && baseSegment in Themes) {
+  if (baseSegment && Object.hasOwn(Themes, baseSegment)) {
     themeUrl.pathname = id
-      ? themeUrl.pathname.replace(baseSegment, id)
+      ? themeUrl.pathname.replace(baseSegment, () => id)
       : themeUrl.pathname.replace(`/${baseSegment}`, '')
   } else if (id) {
     themeUrl.pathname = `/${id}${themeUrl.pathname}`

@@ -20,13 +20,14 @@ export async function addStarlightIntegration(astroConfig: AstroInlineConfig, id
     hooks: {
       'config:setup'({ config, updateConfig }) {
         const theme = id ? Themes[id] : undefined
-        const headOverride =
-          id && theme?.overrides?.Head ? `./src/overrides/themes/${id}/Head.astro` : './src/overrides/Head.astro'
 
         if (config.components?.Head && !theme?.overrides?.Head)
           throw new Error(`The theme '${id}' overrides the 'Head' component, which is not supported.`)
         if (config.components?.SkipLink)
           throw new Error(`The theme '${id}' overrides the 'SkipLink' component, which is not supported.`)
+
+        const headOverride =
+          id && theme?.overrides?.Head ? `./src/overrides/themes/${id}/Head.astro` : './src/overrides/Head.astro'
 
         // Overrides are added in a plugin running after the theme rather than in the Starlight configuration to work
         // around themes not preserving user-defined overrides.
