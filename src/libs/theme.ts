@@ -21,6 +21,7 @@ export const ThemesIds = [
   'md3',
   'mdbook',
   'exquisitus',
+  'dracula',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -149,6 +150,12 @@ export const Themes: Record<ThemeId, Theme> = {
     link: 'https://starlight-theme-exquisitus.aka-300.workers.dev/',
     loader: async () => (await import('starlight-theme-exquisitus')).default,
     name: 'Exquisitus',
+  },
+  dracula: {
+    link: 'https://wasi-master.github.io/dracula-for-starlight/',
+    loader: async () => (await import('starlight-theme-dracula')).default,
+    name: 'Dracula',
+    docName: 'Dracula for Starlight',
   },
 }
 
