@@ -22,6 +22,7 @@ export const ThemesIds = [
   'mdbook',
   'exquisitus',
   'dracula',
+  'largeprint',
 ] as const
 
 export const Themes: Record<ThemeId, Theme> = {
@@ -156,6 +157,11 @@ export const Themes: Record<ThemeId, Theme> = {
     loader: async () => (await import('starlight-theme-dracula')).default,
     name: 'Dracula',
     docName: 'Dracula for Starlight',
+  },
+  largeprint: {
+    link: 'https://starlight-theme-large-print.chenlong365.workers.dev/',
+    loader: async () => (await import('starlight-theme-large-print')).default,
+    name: 'Large Print',
   },
 }
 
